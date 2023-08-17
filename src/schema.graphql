@@ -158,6 +158,7 @@ type GitHubPull {
   repo_name: String!
   state: String!
   number: Float!
+  author_id: ID!
 }
 
 """

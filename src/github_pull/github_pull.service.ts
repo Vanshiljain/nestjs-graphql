@@ -112,7 +112,8 @@ export class GithubPullService {
         repo_id: repo_id,
         repo_name: repo_name,
         repo_owner: username,
-        number: pullRequest.number
+        number: pullRequest.number,
+        author_id: user._id
       }));
       await this.GitHubPullModel.insertMany(pullRequestsToSave);
       return pullRequests;

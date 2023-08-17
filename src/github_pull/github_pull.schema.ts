@@ -57,5 +57,9 @@ export class GitHubPull extends Document {
     @Field(() => Number)
     @Prop()
     number : number;
+
+    @Field(() => ID)
+    @Prop({ type: mongoose.Schema.Types.ObjectId, required: true })
+    author_id: mongoose.Types.ObjectId;
 }
 export const GitHubPullSchema = SchemaFactory.createForClass(GitHubPull);

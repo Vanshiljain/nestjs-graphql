@@ -232,6 +232,7 @@ export interface GitHubPull {
     repo_name: string;
     state: string;
     number: number;
+    author_id: string;
 }
 
 export interface IQuery {
