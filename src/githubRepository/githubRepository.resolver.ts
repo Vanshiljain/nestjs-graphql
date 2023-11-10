@@ -15,4 +15,5 @@ export class GithubRepositoryResolver {
     async githubOrganizationRepositories(@Args('userName') userName: string, @Args('orgName') orgName: string): Promise<GitHubRepository[]> {
         return this.githubRepositoryService.getOrganizationRepositories(userName, orgName);
     }
+    
 }
