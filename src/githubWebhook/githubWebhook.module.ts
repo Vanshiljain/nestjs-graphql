@@ -15,4 +15,4 @@ import { GithubWorkflowModule } from 'src/githubWorkflow/githubWorkflow.module';
     providers: [GithubWebhookService],
     exports: [GithubWebhookService]
 })
-export class GithubWebhookModule { }
+export class GithubWebhookModule {}
