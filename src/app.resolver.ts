@@ -5,6 +5,5 @@ export class AppResolver {
   @Query((returns) => String)
   index(): string {
     return 'Nested GraphQL API';
-    
   }
 }
