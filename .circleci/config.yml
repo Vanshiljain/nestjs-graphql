@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  heroku: circleci/heroku@1.2.6
+  render: circleci/render@1.0.0
 
 jobs:
   build_and_test:
@@ -22,12 +22,12 @@ jobs:
             - .
 
   deploy: # this can be any name you choose
-    executor: heroku/default
+    executor: render/default
     steps:
       - attach_workspace:
           at: ~/project
-      - heroku/deploy-via-git:
-          force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
+      - render/deploy:
+          context: render
 
 workflows:
   test_my_app:
