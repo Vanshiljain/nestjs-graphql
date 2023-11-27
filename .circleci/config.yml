@@ -1,7 +1,6 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
-  render: circleci/render@1.0.0
 
 jobs:
   build_and_test:
@@ -21,21 +20,27 @@ jobs:
           paths:
             - .
 
-  deploy: # this can be any name you choose
-    executor: render/default
+  deploy:
+    docker:
+      - image: circleci/node:14
     steps:
       - attach_workspace:
           at: ~/project
-      - render/deploy:
-          context: render
+      - run:
+          name: Deploy to Render
+          command: |
+            # Add Render deployment commands here
+            # Example:
+            curl -H "Authorization: Bearer rnd_1hlhEHqdZugHinjzI86HRE06RwlA" -X POST https://api.render.com/v1/services/my-service/deploy
 
 workflows:
+  version: 2
   test_my_app:
     jobs:
       - build_and_test
       - deploy:
           requires:
-            - build_and_test # only deploy if the build_and_test job has completed
+            - build_and_test
           filters:
             branches:
-              only: main # only deploy when on main
+              only: main
