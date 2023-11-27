@@ -22,7 +22,7 @@ jobs:
 
   deploy:
     docker:
-      - image: circleci/node:14
+      - image: circleci/node:20
     steps:
       - attach_workspace:
           at: ~/project
