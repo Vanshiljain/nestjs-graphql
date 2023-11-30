@@ -32,6 +32,7 @@ jobs:
 
     steps:
     - name: Deploy to GitHub Pages
+    - name: Deploy to GitHub Pages
       run: |
         echo "Deploying to GitHub Pages..."
         
@@ -50,9 +51,9 @@ jobs:
         
         # Check if the gh-pages branch exists, create it if not
         if ! git show-ref --quiet refs/heads/gh-pages; then
-        git checkout --orphan gh-pages
+            git checkout --orphan gh-pages
         else
-        git checkout gh-pages
+            git checkout gh-pages
         fi
         
         # Clean the existing files in the branch
@@ -62,12 +63,18 @@ jobs:
         # For example, if your build artifacts are in a folder called "dist"
         cp -r /path/to/your/artifacts/* .
         
-        # Stage and commit changes
-        git add .
-        git commit -m "Deploy to GitHub Pages"
-        
-        # Push changes to the gh-pages branch
-        git push origin gh-pages --force
+        # Check if there are changes to commit
+        if [ -n "$(git status --porcelain)" ]; then
+            # Stage and commit changes
+            git add .
+            git commit -m "Deploy to GitHub Pages"
+            
+            # Push changes to the gh-pages branch
+            git push origin gh-pages --force
+        else
+            echo "No changes to commit."
+        fi
+  
 
     env:
         GITHUB_TOKEN: ghu_kBVWmX5WhqPwUk0128BzjnP2D1N3Ui3V7kdP
