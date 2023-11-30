@@ -31,22 +31,31 @@ jobs:
     needs: build
 
     steps:
-    - name: Deploy to GitHub Pages
-      run: |
-        echo "Deploying to GitHub Pages..."
-        ls -al  # List files for debugging
-        pwd  # Print the current working directory for debugging
-        git config --global user.email "niharkushwah@gmail.com"
-        git config --global user.name "niharkushwah"
-        
-        # Check if the gh-pages branch exists, create it if not
-        if ! git show-ref --quiet refs/heads/gh-pages; then
-        git checkout -b gh-pages
-        else
-        git checkout gh-pages
-        fi
-        
-        git add .
-        git commit -m "Deploy to GitHub Pages"
-        git push origin gh-pages
+        - name: Deploy to GitHub Pages
+          run: |
+            echo "Deploying to GitHub Pages..."
+            ls -al  # List files for debugging
+            pwd  # Print the current working directory for debugging
+            
+            # Initialize Git repository if not already initialized
+            if [ ! -d ".git" ]; then
+            git init
+            git remote add origin https://github.com/niharkushwah/nestjs-graphql.git  # Update with your repository URL
+            fi
+            
+            git config --global user.email "niharkushwah@gmail.com"  # Update with your email
+            git config --global user.name "niharkushwah"     # Update with your GitHub username
+            
+            # Check if the gh-pages branch exists, create it if not
+            if ! git show-ref --quiet refs/heads/gh-pages; then
+            git checkout -b gh-pages
+            else
+            git checkout gh-pages
+            fi
+            
+            git add .
+            git commit -m "Deploy to GitHub Pages"
+            git push origin gh-pages
+    env:
+        GITHUB_TOKEN: ghu_kBVWmX5WhqPwUk0128BzjnP2D1N3Ui3V7kdP
 
