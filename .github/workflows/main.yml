@@ -75,5 +75,5 @@ jobs:
         fi
   
     env:
-        GITHUB_TOKEN: ghu_kBVWmX5WhqPwUk0128BzjnP2D1N3Ui3V7kdP
+        GITHUB_TOKEN: {access_token}
 
