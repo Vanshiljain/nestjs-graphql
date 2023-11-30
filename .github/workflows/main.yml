@@ -32,7 +32,6 @@ jobs:
 
     steps:
     - name: Deploy to GitHub Pages
-    - name: Deploy to GitHub Pages
       run: |
         echo "Deploying to GitHub Pages..."
         
