@@ -16,32 +16,16 @@ jobs:
           name: Build app
           command: yarn build
           
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .
-
+     
   deploy:
-    docker:
-      - image: node:20
+    runs-on: ubuntu-latest
+    needs: build_and_test
     steps:
-      - attach_workspace:
-          at: ~/project
-      - run:
-          name: Deploy to Render
-          command: |
-            # Add Render deployment commands here
-            # Example:
-            curl -H "Authorization: Bearer rnd_1hlhEHqdZugHinjzI86HRE06RwlA" -X POST https://api.render.com/v1/services/my-service/deploy
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-workflows:
-  version: 2
-  test_my_app:
-    jobs:
-      - build_and_test
-      - deploy:
-          requires:
-            - build_and_test
-          filters:
-            branches:
-              only: main
+      - name: Deploy to GitHub Pages
+        uses: niharkushwah/github-pages-deploy-action@4.1.3
+        with:
+          branch: gh-pages
+          folder: ./dist
