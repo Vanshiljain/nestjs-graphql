@@ -24,22 +24,3 @@ jobs:
     - name: Build
       run: |
         npm run build
-
-    # Add this step to upload logs as an artifact
-    - name: Upload Logs
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-logs
-        path: |
-          C:\Users\LENOVO\Desktop\circleci\circleci\logs
-          
-# Add a new workflow to fetch the logs
-  fetch-logs:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Download Logs
-      uses: actions/download-artifact@v2
-      with:
-        name: build-logs
-        path: C:\Users\LENOVO\Desktop\circleci\circleci\logs
