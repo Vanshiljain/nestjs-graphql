@@ -25,9 +25,5 @@ jobs:
       run: |
         npm run build
 
-    - name: Upload Logs
-      uses: actions/upload-artifact@v2
-      with:
-        name: build-logs
-        path: |
-          C:/Users/LENOVO/Downloads/nestjs-graphql-main (4)/nestjs-graphql/logs/logs-build.txt
+
+
