@@ -25,10 +25,15 @@ jobs:
       run: |
         npm run build
 
+    - name: Debug Log Contents
+      run: ls -R ${{ github.workspace }}
+
+    - name: Debug Workspace
+      run: echo "Workspace: ${{ github.workspace }}"
+
     - name: Upload Logs
-      if: always()  # This step runs even if previous steps fail or are canceled
+      if: always()
       uses: actions/upload-artifact@v2
       with:
         name: logs
-        path: |
-          ${{ github.workspace }}/logs  # Change this path accordingly
+        path: ${{ github.workspace }}
