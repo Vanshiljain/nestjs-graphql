@@ -31,7 +31,7 @@ jobs:
       with:
         name: build-logs
         path: |
-          C:\Users\LENOVO\Desktop\circleci\circleci\logs
+         C:/Users/LENOVO/Downloads/nestjs-graphql-main (4)/logs/build-log.txt
           
 # Add a new workflow to fetch the logs
   fetch-logs:
@@ -42,4 +42,5 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: build-logs
-        path: C:\Users\LENOVO\Desktop\circleci\circleci\logs
+        path:  C:/Users/LENOVO/Downloads/nestjs-graphql-main (4)/logs/build-log.txt
+          
