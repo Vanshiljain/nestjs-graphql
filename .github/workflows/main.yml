@@ -1,5 +1,4 @@
-name: CI/CD
-
+name: CI/CDs
 
 on:
   push:
@@ -26,5 +25,25 @@ jobs:
       run: |
         npm run build
 
+  additionalJob:
+    runs-on: ubuntu-latest
 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
+    - name: Additional Job Step
+      run: |
+        # Add steps for your additional job
+
+# Adding the following job to fetch and save logs for the "additionalJob"
+  fetchAndSaveLogs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Fetch and Save Logs for build job
+      run: |
+        node fetchAndSaveLogs.js
