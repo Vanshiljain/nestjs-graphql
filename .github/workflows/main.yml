@@ -17,7 +17,7 @@ jobs:
       run: |
         npm install > logs/install.log 2>&1
         echo "::set-output name=install-log::logs/install.log"
-        curl -X POST -H "Content-Type: application/json" -d '{"step_name": "install", "log_file": "logs/install.log"}' http://your-webhook-url/webhook
+        curl -X POST -H "Content-Type: application/json" -d '{"step_name": "install", "log_file": "logs/install.log"}' https://4c36-150-129-144-58.ngrok-free.app/webhook
 
     - name: Run Tests
       run: |
