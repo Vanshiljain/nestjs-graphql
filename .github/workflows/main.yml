@@ -1,4 +1,4 @@
-name: CI/CDs
+name: CI/CD
 on:
   push:
     branches:
@@ -14,21 +14,15 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        npm install > logs/install.log 2>&1
-        echo "::set-output name=install-log::logs/install.log"
-        curl -X POST -H "Content-Type: application/json" -d '{"step_name": "install", "log_file": "logs/install.log"}' https://4c36-150-129-144-58.ngrok-free.app/webhook
+        npm install
 
     - name: Run Tests
       run: |
-        npm test > logs/test.log 2>&1
-        echo "::set-output name=test-log::logs/test.log"
-        curl -X POST -H "Content-Type: application/json" -d '{"step_name": "test", "log_file": "logs/test.log"}' https://4c36-150-129-144-58.ngrok-free.app/webhook
+        npm test
 
     - name: Build
       run: |
-        npm run build > logs/build.log 2>&1
-        echo "::set-output name=build-log::logs/build.log"
-        curl -X POST -H "Content-Type: application/json" -d '{"step_name": "build", "log_file": "logs/build.log"}' https://4c36-150-129-144-58.ngrok-free.app/webhook
+        npm run build
 
   additionalJob:
     runs-on: ubuntu-latest
@@ -40,6 +34,4 @@ jobs:
     - name: Additional Job Step
       run: |
         # Add steps for your additional job
-        echo "This is an additional step" > logs/additional.log
-        echo "::set-output name=additional-log::logs/additional.log"
-        curl -X POST -H "Content-Type: application/json" -d '{"step_name": "additional", "log_file": "logs/additional.log"}'  https://4c36-150-129-144-58.ngrok-free.app/webhook
+
