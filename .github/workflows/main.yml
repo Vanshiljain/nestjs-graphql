@@ -14,15 +14,15 @@ jobs:
 
     - name: Install Dependencies
       run: |
-        npm install
+        npm install > logs/install.log 2>&1
 
     - name: Run Tests
       run: |
-        npm test
+        npm test > logs/test.log 2>&1
 
     - name: Build
       run: |
-        npm run build
+        npm run build > logs/build.log 2>&1
 
   additionalJob:
     runs-on: ubuntu-latest
@@ -34,6 +34,4 @@ jobs:
     - name: Additional Job Step
       run: |
         # Add steps for your additional job
-
-# Adding the following job to fetch and save logs for the "additionalJob"
- 
+        echo "This is an additional step" > logs/additional.log
