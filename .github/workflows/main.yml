@@ -24,14 +24,14 @@ jobs:
       run: |
         npm run build
 
-  additionalJob:
-    runs-on: ubuntu-latest
+  # additionalJob:
+  #   runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v2
 
-    - name: Additional Job Step
-      run: |
-        # Add steps for your additional job
+  #   - name: Additional Job Step
+  #     run: |
+  #       # Add steps for your additional job
 
