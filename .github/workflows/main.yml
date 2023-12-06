@@ -34,4 +34,4 @@ jobs:
 
       - name: Run Local CI
         run: |
-          powershell -File .\local-build.ps1
+          pwsh -File .\local-build.ps1

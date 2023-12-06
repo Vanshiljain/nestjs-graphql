@@ -1,5 +1,5 @@
 # Install act-cli using scoop
 scoop install act-cli
 
-# Checkout code
+# Checkout codes
 act -j build -v
