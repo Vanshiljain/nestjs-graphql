@@ -1,5 +1,4 @@
-name: CI/CD
-
+name: CI/CDs
 on:
   push:
     branches:
@@ -10,28 +9,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: |
-          npm install
+    - name: Install Dependencies
+      run: |
+        npm install
 
-      - name: Run Tests
-        run: |
-          npm test
+    - name: Run Tests
+      run: |
+        npm test
 
-      - name: Build
-        run: |
-          npm run build
+    - name: Build
+      run: |
+        npm run build
 
-  local_ci:
-    runs-on: ubuntu-latest
+  # additionalJob:
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v2
 
-      - name: Run Local CI
-        run: |
-          pwsh -File .\local-build.ps1
+  #   - name: Additional Job Step
+  #     run: |
+  #       # Add steps for your additional job
+
