@@ -1,4 +1,4 @@
-name: CI/CDz
+name: CI/CD
 on:
   push:
     branches:
