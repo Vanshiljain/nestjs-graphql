@@ -1,7 +1,6 @@
 #!/bin/bash
 
 echo 'Running Script'
-
 # List the contents of the project directory
 
 
