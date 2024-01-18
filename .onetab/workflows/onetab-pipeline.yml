@@ -1,7 +1,7 @@
 xdsxxsname: Nihar APIs
 on:x
   push:
-    branches:
+    branches
       - main
       
 jobs: c
