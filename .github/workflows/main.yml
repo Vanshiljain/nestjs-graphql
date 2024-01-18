@@ -1,6 +1,6 @@
 asszname: CI/CD
 
-on
+onsz
   push:x
     branches:
       - maina
