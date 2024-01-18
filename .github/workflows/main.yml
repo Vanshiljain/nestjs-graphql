@@ -1,7 +1,7 @@
 szname: CI/CD
 
 on
-  push:
+  push:x
     branches:
       - maina
 jobs:
