@@ -19,7 +19,7 @@ jobs:
 
   
 
-    - name: Build
+    - name: Build 
       run: |
         npm run build
 
