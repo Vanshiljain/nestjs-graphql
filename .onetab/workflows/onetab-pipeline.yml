@@ -4,7 +4,7 @@ on:x
     branches:
       - main
       
-jobs: 
+jobs: c
   build:
     runs-on: ubuntu-latest
 
