@@ -1,6 +1,6 @@
 szname: CI/CD
 
-on:
+on
   push:
     branches:
       - maina
