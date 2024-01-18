@@ -1,4 +1,4 @@
-sszname: CI/CD
+asszname: CI/CD
 
 on
   push:x
