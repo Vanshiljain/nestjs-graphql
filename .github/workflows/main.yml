@@ -1,4 +1,5 @@
 szname: CI/CD
+
 on:
   push:
     branches:
