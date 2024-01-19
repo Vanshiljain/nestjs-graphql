@@ -2,7 +2,7 @@ xdsxxsname: Nihar AP
 on:x
   push:
     branches
-      - main
+      - mains
       
 jobs: c
   build:
