@@ -3,7 +3,7 @@
 onsz
   push:x
     branches:
-      - maina
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
